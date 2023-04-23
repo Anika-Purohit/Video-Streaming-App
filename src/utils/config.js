@@ -1,4 +1,7 @@
-const CURR_KEY = "AIzaSyAbGGNT7Ynw8Pfac8MDX4P0DAIk8aAyfS4";
+const CURR_KEY = "AIzaSyDWPq_w0_uVejy_MPuXReLG7VXXY4NuZpM";
 
-export const YOUTUBE_API_KEY = "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&regionCode=US&key="+CURR_KEY;
+export const YOUTUBE_API_KEY = "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=US&key="+CURR_KEY;
 
+export const JSON_SEARCH_API = "http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q="
+
+export const OFFSET_LIVE_CHAT = 30;
