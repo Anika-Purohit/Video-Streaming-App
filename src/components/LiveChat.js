@@ -8,8 +8,6 @@ const LiveChat = () => {
   const [liveMessage,setLiveMessage] = useState("");
   const dispatch = useDispatch();
   const chatMessages = useSelector((store) => store.chat.messages); 
-
-  
   
    useEffect(()=>{
     const i = setInterval(()=>{
@@ -18,19 +16,19 @@ const LiveChat = () => {
       name:generateRandomName(),
       message:generateRandomString(17),
     }))
-    },800);
+    },500);
     
     return ()=>clearInterval(i);
    }, [])
 
   return (
-    <div className='ml-3'>
-     <div className=' rounded-lg w-full h-[700px] flex flex-col-reverse overflow-y-scroll  bg-slate-100'>
+    <div className='ml-5'>
+     <div className=' rounded-lg w-full h-[560px] flex flex-col-reverse overflow-y-scroll '>
       {chatMessages.map((m,i)=>
       <ChatMessage key={i} name={m.name} message={m.message}/>
       )}
       </div>
-    <form className='mt-2' onSubmit ={(e)=>{
+    <form className='' onSubmit ={(e)=>{
     //console.log("on submit",liveMessage)  ;
     e.preventDefault();
     dispatch(
@@ -40,7 +38,7 @@ const LiveChat = () => {
     })  
     )}
     }>
-    <input className='rounded-full w-[390px] border-4 border-green-200 p-2 bg-green-50' 
+    <input className='rounded-lg text-slate-400 w-[390px] ml-2 mr-3  p-2 bg-stone-100' 
     type="text" 
     placeholder='Enter your message.'
     value={liveMessage} 
