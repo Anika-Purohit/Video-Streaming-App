@@ -1,22 +1,18 @@
-import React,{ useEffect, useState } from 'react'
-import { YOUTUBE_API_KEY } from '../utils/config';
 import VideoCard from './VideoCard';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import Shimmer from './Shimmer';
+import useVideo from '../utils/useVideo';
 
 const VideoContainer = () => {
-  const[videos, setVideos] = useState([]); 
+  
+const menuOpen = useSelector(store=>store.app.isMenuOpen)
+const videos = useVideo();
 
-  useEffect( () => { getVideos(); },[]);
-
-  const getVideos=async()=>{
-  const data = await fetch(YOUTUBE_API_KEY);
-  const json = await data.json();
-  console.log(json.items);
-  setVideos(json.items);
-  } ;
-
-return(  
-<div className=' grid grid-cols-3 grid-flow-row gap-4 justify-items-center'>
+return (!videos)? (<Shimmer/>):
+(
+(menuOpen )?(  
+<div className=' grid grid-cols-4 grid-flow-row gap-4 justify-items-center'>
  
  {videos.map((video)=> (
  <Link to={"/watch?v="+video.id} key={video.id} >
@@ -26,7 +22,20 @@ return(
   </Link>)
   )} 
 </div>    
+): (  
+  <div className=' grid grid-cols-5 grid-flow-row gap-4 justify-items-center'>
+   
+   {videos.map((video)=> (
+   <Link to={"/watch?v="+video.id} key={video.id} >
+    <div className=''>
+    <VideoCard info={video}/>
+    </div>
+    </Link>)
+    )} 
+  </div>    
+  ) 
 );
+
 };
 
 export default VideoContainer;

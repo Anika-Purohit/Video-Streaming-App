@@ -1,4 +1,4 @@
-const CURR_KEY = "AIzaSyDWPq_w0_uVejy_MPuXReLG7VXXY4NuZpM";
+const CURR_KEY = "AIzaSyAkhV5C2mMWmttY43c91AdeaAJ0iIkuokk";
 
 export const YOUTUBE_API_KEY = "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=US&key="+CURR_KEY;
 
