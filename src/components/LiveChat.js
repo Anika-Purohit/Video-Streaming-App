@@ -38,7 +38,7 @@ const LiveChat = () => {
     })  
     )}
     }>
-    <input className='rounded-lg text-slate-400 w-[390px] ml-2 mr-3  p-2 bg-stone-100' 
+    <input className='rounded-lg text-slate-400 w-full ml-2  p-2 bg-stone-100' 
     type="text" 
     placeholder='Enter your message.'
     value={liveMessage} 
